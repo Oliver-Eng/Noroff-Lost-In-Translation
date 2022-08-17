@@ -4,6 +4,7 @@ import { loginUser } from '../../sources/user';
 import { storageSave } from '../../utils/storage';
 import { useNavigate } from 'react-router';
 import { useUser } from '../../context/UserContext';
+import { STORAGE_KEY_USER } from '../../const/storageKeys';
 
 const usernameConfig = {
 	required: true,
@@ -41,7 +42,7 @@ const LoginForm = () => {
 			setApiError(error);
 		}
 		if (userResponse !== null) {
-			storageSave('current-user', userResponse);
+			storageSave(STORAGE_KEY_USER, userResponse);
 			setUser(userResponse);
 		}
 
