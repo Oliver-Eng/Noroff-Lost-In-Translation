@@ -3,9 +3,9 @@ import React, { useState } from "react";
 import { Routes, Route } from "react-router-dom";
 import MainContext from "./context/MainContext";
 
-import Home from "./components/Home";
-import Translation from "./components/Translation";
-import Profile from "./components/Profile";
+import Home from "./pages/Home";
+import Translation from "./pages/Translation";
+import Profile from "./pages/Profile";
 
 function App() {
     const [state, setState] = useState(1)
