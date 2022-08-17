@@ -1,25 +1,28 @@
 import "./App.css";
-import React, { createContext, useState } from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import React, { useState } from "react";
+import { Routes, Route } from "react-router-dom";
+import MainContext from "./context/MainContext";
 
 import Home from "./components/Home";
 import Translation from "./components/Translation";
 import Profile from "./components/Profile";
 
 function App() {
-    const [state, setState] = useState("")
-    const MainContext = createContext(null);
+    const [state, setState] = useState(1)
 
     return (
-        <MainContext.Provider value={ {state, setState} }>
-            <BrowserRouter>
-                <Routes>
-                    <Route path="/" element={<Home />} />
-                    <Route path="/translation" element={<Translation />} />
-                    <Route path="/profile" element={<Profile />} />
-                </Routes>
-            </BrowserRouter>
+      <>
+        <MainContext.Provider value={ {state, setState} }>          
+          <div className="App">
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="translation" element={<Translation />} />
+              <Route path="profile" element={<Profile />} />
+            </Routes>
+          </div>
         </MainContext.Provider>
+      </>
+        
     );
 }
 
