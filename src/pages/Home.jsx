@@ -1,11 +1,13 @@
 import React from 'react';
-import LoginForm from '../components/Login/LoginForm';
+import Section from '../components/Home/Section/Section';
+import Top from '../components/Home/Top/Top';
 
 const Home = () => {
 	return (
-		<>
-			<LoginForm />
-		</>
+		<React.Fragment>
+			<Top />
+			<Section />
+		</React.Fragment>
 	);
 };
 

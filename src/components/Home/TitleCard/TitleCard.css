@@ -1,0 +1,32 @@
+.title-image-container {
+	position: relative;
+	justify-content: center;
+	width: 90%;
+	height: 60%;
+	min-width: 400px;
+	max-width: 780px;
+	top: 25%;
+	color: white;
+	font-family: 'Lakki Reddy', cursive;
+}
+
+.title-image {
+	position: absolute;
+	width: 180px;
+	left: -3%;
+	bottom: 20%;
+}
+
+#title {
+	position: absolute;
+	left: 170px;
+	bottom: 40%;
+	font-size: calc(20px + 1.5vw);
+}
+
+#sub-title {
+	position: absolute;
+	left: 200px;
+	bottom: 28%;
+	font-size: calc(20px + 0.5vw);
+}
