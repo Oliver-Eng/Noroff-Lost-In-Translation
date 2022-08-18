@@ -1,10 +1,11 @@
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import { loginUser } from '../../sources/user';
 import { storageSave } from '../../utils/storage';
 import { useNavigate } from 'react-router';
 import { useUser } from '../../context/UserContext';
 import { STORAGE_KEY_USER } from '../../const/storageKeys';
+import './LoginForm.css';
 
 const usernameConfig = {
 	required: true,
@@ -49,30 +50,62 @@ const LoginForm = () => {
 
 	//* render functions
 	const errorMessage = (() => {
+		if (!errors.username && loading === true) {
+		}
 		if (!errors.username) {
 			return null;
 		}
 		if (errors.username.type === 'required') {
-			return <span>Username is required</span>;
+			return <span> ⚠ Username is required</span>;
 		}
 		if (errors.username.type === 'minLength') {
-			return <span> Username must be at least 3 characters</span>;
+			return <span> ⚠ Username must be at least 3 characters</span>;
 		}
 	})();
 
 	return (
-		<>
-			<form onSubmit={handleSubmit(onSubmit)}>
-				<fieldset>
-					<input type='text' placeholder='username' {...register('username', usernameConfig)} />
-					<button type='submit' disabled={loading}>
-						Continue
-					</button>
-					{errorMessage}
-				</fieldset>
-				{apiError && <p>{apiError}</p>}
-			</form>
-		</>
+		<React.Fragment>
+			<div className='content-container'>
+				<div className='top-bar'>
+					<div className='top-bar-text-container'>
+						<p>Lost in Translation</p>
+					</div>
+				</div>
+
+				<div className='title-image-container'>
+					<img className='title-image' src='/images/logo-graphics/Logo-Splash.png' alt='imagealt'></img>
+					<span id='title'>Lost in Translation?</span>
+					<span id='sub-title'>Get Started!</span>
+				</div>
+
+				<div className='form-box'>
+					<div className='form-box-error'>
+						{errorMessage}
+						{loading && <span>Attempting to log in...</span>}
+						{apiError && <span>{apiError}</span>}
+					</div>
+
+					<form onSubmit={handleSubmit(onSubmit)}>
+						<fieldset className='fieldset-login'>
+							<input
+								className='login-input'
+								type='text'
+								placeholder="What's your name?"
+								{...register('username', usernameConfig)}
+							/>{' '}
+							<img id='keyboard-image' src='/images/logo-graphics/Keyboard.png' alt='keyboard'></img>
+							<button className='submit-button' type='submit' disabled={loading}>
+								<img
+									id='button-image'
+									src='/images/logo-graphics/Right_Arrow.png'
+									alt='right_arrow'
+								></img>
+							</button>
+						</fieldset>
+					</form>
+				</div>
+			</div>
+		</React.Fragment>
 	);
 };
 
