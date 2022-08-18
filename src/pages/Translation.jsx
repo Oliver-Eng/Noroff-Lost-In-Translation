@@ -1,14 +1,9 @@
-import React, { useContext, useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
-import MainContext from '../context/MainContext';
-import { useUser } from '../context/UserContext';
+import React, { useState } from 'react';
 import withAuth from '../hoc/withAuth';
 
 const Translation = () => {
 	const [searchString, setSearchString] = useState("")
 	const [characters, setCharacters] = useState([])
-	const { state, setState } = useContext(MainContext);
-	const { user } = useUser();
 
 
 	const handleChange = (event) => {
