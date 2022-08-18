@@ -45,8 +45,6 @@ const LoginForm = () => {
 			storageSave(STORAGE_KEY_USER, userResponse);
 			setUser(userResponse);
 		}
-
-		setLoading(false);
 	};
 
 	//* render functions
