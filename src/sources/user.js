@@ -49,3 +49,43 @@ const createUser = async (username) => {
 		return [error.message, []];
 	}
 };
+
+export const addTranslation = async (id, translations) => {
+	try {
+
+		const response = await fetch(`${apiUrl}/${id}`, {
+			method: 'PATCH',
+			headers: createHeaders(),
+			body: JSON.stringify({
+				translations: translations
+			})
+		});
+		if (!response.ok) {
+			throw new Error('could not add translation');
+		}
+		const data = await response.json();
+		return [null, data];
+	} catch (error) {
+		return [error.message, []];
+	}
+};
+
+export const deleteTranslation = async (id) => {
+	try {
+
+		const response = await fetch(`${apiUrl}/${id}`, {
+			method: 'PATCH',
+			headers: createHeaders(),
+			body: JSON.stringify({
+				translations: []
+			})
+		});
+		if (!response.ok) {
+			throw new Error('could not delete translation');
+		}
+		const data = await response.json();
+		return [null, data];
+	} catch (error) {
+		return [error.message, []];
+	}
+};

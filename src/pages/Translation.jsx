@@ -1,9 +1,12 @@
 import React, { useState } from 'react';
 import withAuth from '../hoc/withAuth';
+import { addTranslation } from './../sources/user';
+import { useUser } from '../context/UserContext';
 
 const Translation = () => {
 	const [searchString, setSearchString] = useState("")
 	const [characters, setCharacters] = useState([])
+	const { user } = useUser();
 
 
 	const handleChange = (event) => {
@@ -18,7 +21,16 @@ const Translation = () => {
 		let newCharacters = Array.from(strippedSearch)
 			.map(char => char.toLowerCase())
 
-		setCharacters(newCharacters)
+		fetch("https://obe-noroff-api.herokuapp.com/translations/" + user.id)
+			.then(res => res.json())
+			.then(json => {
+				let old = json.translations
+				old.push(searchString)
+
+				addTranslation(user.id, old)
+				setCharacters(newCharacters)
+			})
+		
 	}
 
 	return (
