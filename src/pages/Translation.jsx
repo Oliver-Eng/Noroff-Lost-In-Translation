@@ -24,12 +24,12 @@ const Translation = () => {
 	return (
 		<React.Fragment>
 			<form onSubmit={handleSubmit}>
-				<input onChange={handleChange}></input>
+				<input maxLength={40} onChange={handleChange}></input>
 				<button>Translate</button>
 			</form>
 			<div>
-				{characters.map(char => {
-					return <img width="75px" src={"/images/" + char + ".png"} alt="sign"/>
+				{characters.map((char, index) => {
+					return <img key={index} width="75px" src={"/images/" + char + ".png"} alt="sign"/>
 				})}
 			</div>
 		</React.Fragment>
