@@ -10,6 +10,19 @@
 	box-shadow: 0px 0px 5px 5px rgba(0, 0, 0, 0.2);
 }
 
+.form-box-translation {
+	position: absolute;
+	height: 150pt;
+	width: 90%;
+	min-width: 250px;
+	max-width: 650px;
+	top: 250px;
+	padding: 20px 50px;
+	background: linear-gradient(to bottom, white 85%, #845ec2 50%);
+	border-radius: 20px;
+	box-shadow: 0px 0px 5px 5px rgba(0, 0, 0, 0.2);
+}
+
 .form-box-error {
 	position: absolute;
 	height: 20%;
@@ -29,6 +42,29 @@
 	width: 92%;
 	min-width: 350px;
 	margin-left: 4%;
+}
+
+.login-input-translation {
+	all: unset;
+	height: 56px;
+	width: 80%;
+	padding-top: 6px;
+	padding-bottom: 0px;
+	padding-right: 60px;
+	padding-left: 75px;
+
+	font-size: 20pt;
+	background-color: #efefef;
+	border-color: #bfbfbf;
+	border-width: 4px;
+	border-style: solid;
+	border-radius: 50px;
+
+	font-weight: 400;
+	font-family: 'Karma', serif;
+	color: #4e4e4e;
+
+	caret-color: #845ec2;
 }
 
 .login-input {
@@ -70,6 +106,18 @@
 	border-radius: 50%;
 }
 
+.submit-button-translation {
+	all: unset;
+	display: flex;
+	position: absolute;
+	width: 50px;
+	height: 50px;
+	top: 10px;
+	right: 25px;
+	background-color: #845ec2;
+	border-radius: 50%;
+}
+
 .submit-button:hover {
 	background-color: #66449c;
 }
@@ -91,5 +139,12 @@
 	position: absolute;
 	width: 45px;
 	top: 30%;
+	left: 20px;
+}
+
+#keyboard-image-translation {
+	position: absolute;
+	width: 45px;
+	top: 18%;
 	left: 20px;
 }
