@@ -2,16 +2,18 @@ import React, { useState } from 'react';
 import withAuth from '../hoc/withAuth';
 import { TranslationSection } from "../components/Translation/TranslationSection" 
 import Top from '../components/Home/Top/Top';
+import { storageSave } from './../utils/storage';
 import '../components/Home/TitleCard/TitleCard.css';
 import '../components/Home/LoginForm/LoginForm.css';
 import '../components/Home/Section/Section.css';
 import { addTranslation } from './../sources/user';
 import { useUser } from './../context/UserContext';
+import { STORAGE_KEY_USER } from './../const/storageKeys';
 
 const Translation = () => {    
 	const [searchString, setSearchString] = useState("")
 	const [characters, setCharacters] = useState([])
-	const { user } = useUser();
+	const { user, setUser } = useUser();
 
 
 	const handleChange = (event) => {
@@ -29,10 +31,14 @@ const Translation = () => {
 		fetch("https://obe-noroff-api.herokuapp.com/translations/" + user.id)
 			.then(res => res.json())
 			.then(json => {
-				let old = json.translations
-				old.push(searchString)
+				let newTranslations = json.translations
+				newTranslations.push(searchString)
 
-				addTranslation(user.id, old)
+				console.log({...user,  translations: newTranslations})
+
+				storageSave(STORAGE_KEY_USER, {...user,  translations: newTranslations});
+				addTranslation(user.id, newTranslations)
+				setUser({...user,  translations: newTranslations})
 				setCharacters(newCharacters)
 			})
 		

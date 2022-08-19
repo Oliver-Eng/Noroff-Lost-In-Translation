@@ -23,6 +23,11 @@ const Profile = () => {
 			<p>YOUR CURRENT USER IS: {user.username}</p>
 			<button onClick={logOut}>Log Out</button>
 			<button onClick={() => deleteTranslation(user.id)}>Delete history</button>
+
+			<h2>Search Results</h2>
+			{user.translations.map((tran, index) => {
+				return <div key={index}>{tran}</div>
+			})}
 		</>
 	);
 };
