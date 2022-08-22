@@ -104,3 +104,22 @@ export const deleteTranslations = async (id) => {
 		return [error.message, []];
 	}
 };
+
+export const deleteUser = async (id) => {
+	try {
+		const response = await fetch(`${apiUrl}/${id}`, {
+			method: 'DELETE',
+			headers: createHeaders()
+		});
+
+		if (!response.ok) {
+			throw new Error('Could not delete user with id ' + id);
+		}
+
+		const data = await response.json();
+
+		return [null, data];
+	} catch (error) {
+		return [error.message, []];
+	}
+};
