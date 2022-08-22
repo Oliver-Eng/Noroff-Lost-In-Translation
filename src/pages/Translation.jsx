@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import withAuth from '../hoc/withAuth';
 import Top from '../components/Home/Top/Top';
 import { storageSave } from './../utils/storage';
@@ -7,11 +7,14 @@ import '../components/Translation/TranslationSection.css';
 import { addTranslation } from './../sources/user';
 import { useUser } from './../context/UserContext';
 import { STORAGE_KEY_USER } from './../const/storageKeys';
+import { useNavigate } from 'react-router';
 
 const Translation = () => {
 	const [searchString, setSearchString] = useState('');
 	const [characters, setCharacters] = useState([]);
 	const { user, setUser } = useUser();
+
+	const navigate = useNavigate();
 
 	// Keeps track of data in controlled component
 	const handleChange = (event) => {
@@ -40,6 +43,19 @@ const Translation = () => {
 				setCharacters(newCharacters);
 			});
 	};
+
+	useEffect(() => {	
+		fetch('https://obe-noroff-api.herokuapp.com/translations/' + user.id)	
+			.then(res => res.json())
+			.then(json => {					
+				let responseIsEmpty = Object.keys(json).length === 0
+
+				if (responseIsEmpty) {					
+					localStorage.removeItem(STORAGE_KEY_USER);
+					navigate("/")
+				}
+			})
+	}, [])
 
 	return (
 		<React.Fragment>

@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router';
 import React from 'react';
 
 const Top = () => {
-	const { user, setUser } = useUser();
+	const { user } = useUser();
 	const navigate = useNavigate();
 
 	const profileNavigate = () => {		

@@ -1,5 +1,6 @@
-import React from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import React, { useEffect } from 'react';
+import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router';
 import { STORAGE_KEY_USER } from '../const/storageKeys';
 import { useUser } from '../context/UserContext';
 import { deleteTranslations } from './../sources/user';
@@ -17,6 +18,19 @@ const Profile = () => {
 		navigate('/');
 	};
 	// ^^^^^^ this should probably be inside a component of its own...
+
+	useEffect(() => {	
+		fetch('https://obe-noroff-api.herokuapp.com/translations/' + user.id)	
+			.then(res => res.json())
+			.then(json => {					
+				let responseIsEmpty = Object.keys(json).length === 0
+
+				if (responseIsEmpty) {					
+					localStorage.removeItem(STORAGE_KEY_USER);
+					navigate("/")
+				}
+			})
+	}, [])
 
 	return (
 		<>
