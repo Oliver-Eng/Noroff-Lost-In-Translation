@@ -15,11 +15,13 @@ const Translation = () => {
 	const [characters, setCharacters] = useState([])
 	const { user, setUser } = useUser();
 
-
+	// Keeps track of data in controlled component
 	const handleChange = (event) => {
 		setSearchString(event.target.value)
 	}
 
+	// Uses data from controlled component to call the API to save new translation
+	// Initializes the showcase of a translation, and saves to localstorage
 	const handleSubmit = (event) => {
 		event.preventDefault();
 
@@ -38,6 +40,7 @@ const Translation = () => {
 
 				storageSave(STORAGE_KEY_USER, {...user,  translations: newTranslations});
 				addTranslation(user.id, newTranslations)
+
 				setUser({...user,  translations: newTranslations})
 				setCharacters(newCharacters)
 			})

@@ -1,7 +1,8 @@
 import { createHeaders } from '.';
 
-const apiUrl = process.env.REACT_APP_API_URL; // <-- insert api url here
+const apiUrl = process.env.REACT_APP_API_URL;
 
+// Used on login form submit - If user exists, use it, otherwise create one.
 export const loginUser = async (username) => {
 	const [checkError, user] = await checkForUser(username);
 
@@ -16,19 +17,24 @@ export const loginUser = async (username) => {
 	return await createUser(username);
 };
 
+// Calls the api to check if a user exists and returns the user if it does
 const checkForUser = async (username) => {
 	try {
 		const response = await fetch(`${apiUrl}?username=${username}`);
+
 		if (!response.ok) {
 			throw new Error('Could not complete request.');
 		}
+
 		const data = await response.json();
+
 		return [null, data];
 	} catch (error) {
 		return [error.message, []];
 	}
 };
 
+// Calls the API to create a user and returns the user
 const createUser = async (username) => {
 	try {
 		const response = await fetch(apiUrl, {
@@ -40,19 +46,22 @@ const createUser = async (username) => {
 				translations: []
 			})
 		});
+
 		if (!response.ok) {
 			throw new Error('Could not create user with username ' + username);
 		}
+
 		const data = await response.json();
+
 		return [null, data];
 	} catch (error) {
 		return [error.message, []];
 	}
 };
 
+// Calls the API to add to a users list of "translations"
 export const addTranslation = async (id, translations) => {
 	try {
-
 		const response = await fetch(`${apiUrl}/${id}`, {
 			method: 'PATCH',
 			headers: createHeaders(),
@@ -60,19 +69,22 @@ export const addTranslation = async (id, translations) => {
 				translations: translations
 			})
 		});
+
 		if (!response.ok) {
 			throw new Error('could not add translation');
 		}
+
 		const data = await response.json();
+
 		return [null, data];
 	} catch (error) {
 		return [error.message, []];
 	}
 };
 
-export const deleteTranslation = async (id) => {
+// Calls the API to remove a users list of "translations"
+export const deleteTranslations = async (id) => {
 	try {
-
 		const response = await fetch(`${apiUrl}/${id}`, {
 			method: 'PATCH',
 			headers: createHeaders(),
@@ -80,10 +92,13 @@ export const deleteTranslation = async (id) => {
 				translations: []
 			})
 		});
+
 		if (!response.ok) {
 			throw new Error('could not delete translation');
 		}
+
 		const data = await response.json();
+
 		return [null, data];
 	} catch (error) {
 		return [error.message, []];

@@ -10,6 +10,7 @@ const Profile = () => {
 	const { user, setUser } = useUser();
 	const navigate = useNavigate();
 
+	// Clears localstorage and navigates to frontpage
 	const logOut = () => {
 		localStorage.removeItem(STORAGE_KEY_USER);
 		setUser(null);
