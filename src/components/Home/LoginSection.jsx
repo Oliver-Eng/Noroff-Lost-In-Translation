@@ -1,9 +1,9 @@
 import React from 'react';
-import TitleCard from '../TitleCard/TitleCard';
-import LoginForm from '../LoginForm/LoginForm';
-import './Section.css';
+import TitleCard from './TitleCard';
+import LoginForm from './LoginForm';
+import './LoginSection.css';
 
-const Section = () => {
+const LoginSection = () => {
 	return (
 		<div className='content-container'>
 			{
@@ -16,4 +16,4 @@ const Section = () => {
 	);
 };
 
-export default Section;
+export default LoginSection;

@@ -2,6 +2,7 @@
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	gap: 20%;
 	position: absolute;
 	top: -2px;
 	width: 100%;
@@ -13,18 +14,20 @@
 .top-bar-text-container {
 	display: flex;
 	height: 50px;
-	width: 100%;
-	min-width: 350px;
-	max-width: 780px;
 	color: white;
 	font-family: 'Lakki Reddy', cursive;
 }
 
 .top-bar-text-container p {
 	all: unset;
+	cursor: pointer;
 	padding-top: 10px;
 	font-size: 24px;
-	width: 50%;
+}
+
+.profile-button-container {
+	display: flex;
+	align-items: center;
 }
 
 .top-bar-profile-container {
@@ -44,8 +47,9 @@
 	cursor: pointer;
 	color: white;
 	background-color: #d49d36;
-	padding: 5px 20px;	
+	padding: 5px 20px;
 	margin-right: -10px;
+	height: 25px;
 	border-top-left-radius: 20px;
 	border-bottom-left-radius: 20px;
 }
