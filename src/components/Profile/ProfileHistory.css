@@ -14,10 +14,10 @@
 
 .search-title {
 	position: absolute;
+	padding-left: 20px;
+	top: -17px;
 	color: white;
 	font-family: 'Lakki Reddy', cursive;
-	top: -17px;
-	padding-left: 20px;
 }
 
 .history-text {
@@ -25,9 +25,9 @@
 	flex-direction: column;
 	overflow-wrap: break-word;
 	position: relative;
+	width: 95%;
 	padding: 10px;
 	margin-top: 35px;
-	width: 95%;
 	font-family: 'Courier New', Courier, monospace;
 	font-weight: 500;
 	font-size: 24px;

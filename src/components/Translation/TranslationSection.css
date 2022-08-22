@@ -1,7 +1,7 @@
 .content-container-translation {
 	display: flex;
-	justify-content: center;
-	align-items: center;
 	height: 200px;
 	background-color: #ffc75f;
+	justify-content: center;
+	align-items: center;
 }
