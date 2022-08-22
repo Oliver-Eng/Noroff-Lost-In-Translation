@@ -2,7 +2,7 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { STORAGE_KEY_USER } from '../../const/storageKeys';
 import { useUser } from '../../context/UserContext';
-import { deleteTranslations, deleteUser } from '../../sources/user';
+import { deleteTranslations } from '../../sources/user';
 import { storageDelete, storageSave } from '../../utils/storage';
 import ProfileHistory from './ProfileHistory';
 import ProfileCard from './ProfileCard';
