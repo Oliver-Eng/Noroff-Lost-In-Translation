@@ -18,7 +18,7 @@ export const loginUser = async (username) => {
 };
 
 // Calls the api to check if a user exists and returns the user if it does
-const checkForUser = async (username) => {
+export const checkForUser = async (username) => {
 	try {
 		const response = await fetch(`${apiUrl}?username=${username}`);
 
