@@ -36,8 +36,6 @@ const Translation = () => {
 				let newTranslations = json.translations
 				newTranslations.push(searchString)
 
-				console.log({...user,  translations: newTranslations})
-
 				storageSave(STORAGE_KEY_USER, {...user,  translations: newTranslations});
 				addTranslation(user.id, newTranslations)
 
@@ -78,8 +76,6 @@ const Translation = () => {
 						</div>
 					</React.Fragment>
 				}
-			</div>
-			<div>
 			</div>
 		</React.Fragment>
 	)

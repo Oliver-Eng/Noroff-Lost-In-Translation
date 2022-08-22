@@ -2,7 +2,7 @@ import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { STORAGE_KEY_USER } from '../const/storageKeys';
 import { useUser } from '../context/UserContext';
-import { deleteTranslation } from './../sources/user';
+import { deleteTranslations } from './../sources/user';
 import withAuth from '../hoc/withAuth';
 
 const Profile = () => {
@@ -23,7 +23,7 @@ const Profile = () => {
 			<Link to='/'>TO HOME</Link>
 			<p>YOUR CURRENT USER IS: {user.username}</p>
 			<button onClick={logOut}>Log Out</button>
-			<button onClick={() => deleteTranslation(user.id)}>Delete history</button>
+			<button onClick={() => deleteTranslations(user.id)}>Delete history</button>
 
 			<h2>Search Results</h2>
 			{user.translations.map((tran, index) => {
