@@ -1,6 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Lakki+Reddy&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Karma:wght@300;400;500&display=swap');
 
+body {
+	overflow-x: hidden;
+}
 .content-container {
 	display: flex;
 	justify-content: center;
