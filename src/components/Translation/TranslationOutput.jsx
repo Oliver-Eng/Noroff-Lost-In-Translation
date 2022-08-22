@@ -6,6 +6,7 @@ const TranslationOutput = ({ characters }) => {
 			{characters.map((char, index) => {
 				return <img key={index} width='75px' src={'/images/hand-signs/' + char + '.png'} alt='sign' />;
 			})}
+			<div className='translation-emblem'>Translation</div>
 		</div>
 	);
 };
