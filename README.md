@@ -15,8 +15,8 @@ npm install
 Create a file in the root of the project, called ".env", and paste the following into it:
 
 ```
-REACT_APP_API_KEY=[INSERT PROVIDED API KEY HERE]
-REACT_APP_API_URL=[INSERT PROVIDED URL HERE]
+REACT_APP_API_KEY=[INSERT PROVIDED API KEY HERE (without brackets)]
+REACT_APP_API_URL=[INSERT PROVIDED URL HERE (without brackets)]
 ```
 
 Then replace the "INSERT PR..." with their relevant pieces, from the creators of the project.
