@@ -1,0 +1,75 @@
+.translation-field {
+	display: flex;
+	position: relative;
+	width: 90%;
+	min-width: 410px;
+	max-width: 760px;
+	top: 26px;
+	justify-content: center;
+	align-content: center;
+}
+
+.login-input-translation {
+	all: unset;
+	position: relative;
+	height: 56px;
+	width: 83%;
+	padding-top: 6px;
+	padding-bottom: 0px;
+	padding-right: 60px;
+	padding-left: 75px;
+
+	font-size: 20pt;
+	background-color: white;
+	border-color: #bfbfbf;
+	border-width: 4px;
+	border-style: solid;
+	border-radius: 50px;
+
+	font-weight: 400;
+	font-family: 'Karma', serif;
+	color: #4e4e4e;
+
+	caret-color: #845ec2;
+}
+
+.login-input-translation:focus {
+	border-color: #845ec2;
+}
+
+.submit-button-translation {
+	all: unset;
+	display: flex;
+	position: absolute;
+	width: 50px;
+	height: 50px;
+	top: 10px;
+	right: 10px;
+	background-color: #845ec2;
+	border-radius: 50%;
+}
+
+.submit-button-translation:hover {
+	background-color: #66449c;
+}
+
+.submit-button-translation:active {
+	background-color: #6b47a5;
+	box-shadow: 0 3px #666;
+}
+
+#button-image {
+	cursor: pointer;
+	position: relative;
+	padding-top: 20%;
+	width: 55%;
+	max-height: 60%;
+	left: 22%;
+}
+
+#keyboard-image-translation {
+	position: absolute;
+	width: 45px;
+	top: 28%;
+	left: 20px;
+}

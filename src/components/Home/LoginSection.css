@@ -10,11 +10,3 @@ body {
 	height: 375px;
 	background-color: #ffc75f;
 }
-
-.content-container-translation {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	height: 200px;
-	background-color: #ffc75f;
-}

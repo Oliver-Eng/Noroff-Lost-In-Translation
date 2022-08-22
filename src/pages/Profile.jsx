@@ -1,35 +1,14 @@
 import React from 'react';
-import { Link, useNavigate } from 'react-router-dom';
-import { STORAGE_KEY_USER } from '../const/storageKeys';
-import { useUser } from '../context/UserContext';
-import { deleteTranslations } from './../sources/user';
 import withAuth from '../hoc/withAuth';
+import Top from '../components/Top/Top';
+import ProfileSection from '../components/Profile/ProfileSection';
 
 const Profile = () => {
-	// vvvvvv this should probably be inside a component of its own...
-	const { user, setUser } = useUser();
-	const navigate = useNavigate();
-
-	// Clears localstorage and navigates to frontpage
-	const logOut = () => {
-		localStorage.removeItem(STORAGE_KEY_USER);
-		setUser(null);
-		navigate('/');
-	};
-	// ^^^^^^ this should probably be inside a component of its own...
-
 	return (
-		<>
-			<Link to='/'>TO HOME</Link>
-			<p>YOUR CURRENT USER IS: {user.username}</p>
-			<button onClick={logOut}>Log Out</button>
-			<button onClick={() => deleteTranslations(user.id)}>Delete history</button>
-
-			<h2>Search Results</h2>
-			{user.translations.map((tran, index) => {
-				return <div key={index}>{tran}</div>
-			})}
-		</>
+		<React.Fragment>
+			<Top />
+			<ProfileSection />
+		</React.Fragment>
 	);
 };
 
